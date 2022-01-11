@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .world{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            perspective: 500px;
+        }
+
+        @keyframes poster-ani{
+            0%{
+                transform: rotateY(-20deg);
+            }
+          
+            100%{
+                transform: rotateY(20deg);
+            }
+        }
+        .poster{
+            position: relative;
+            width: 200px;
+            height: 250px;
+            border-radius: 10px;
+            background-color: yellow;
+            animation: poster-ani 1.6s infinite linear alternate;/*alternate의 사전적 의미는 반복적으로 이며 튕기지않게 해줌*/
+            transform-style: preserve-3d; /*최상위 요소에 설정해둔 3D효과가 poster 자식요소에는 닿지않기때문에 설정*/
+        }
+
+        .post_title{
+            font-size: 2rem;
+            font-weight: normal;
+            font-family: swagger;
+            text-align: center;
+            padding: 0.5em 0;
+            transform: translateZ(30px); /*3D효과에서 튀어나와보이게 설정함*/
+        }
+        
+        .character{
+            position: absolute;
+            width: 50%;
+            
+        }
+        .poster>figure:nth-of-type(1){
+            filter: hue-rotate(90deg);
+            left: 24%;
+            bottom: 37%;
+        }
+        .poster>figure:nth-of-type(2){
+            filter: hue-rotate(180deg);
+            left: -5%;
+            bottom: 10%;
+            transform: translateZ(40px);
+        }
+        .poster>figure:nth-of-type(3){
+            left: 48%;
+            bottom: 3%;
+            transform: translateZ(70px);
+        }
+       
+   </style>
+</head>
+<body>
+    <div class="world">
+        <section class="poster">
+            <h1 class="post_title">두둥실 예제</h1>
+            <figure class="character">
+                <img src="gost.png" alt="캐릭터1">
+            </figure>
+            <figure class="character">
+                <img src="gost.png" alt="캐릭터2">
+            </figure>
+            <figure class="character">
+                <img src="gost.png" alt="캐릭터3">
+            </figure>
+        </section>
+    </div>
+</body>
+</html>
